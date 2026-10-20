@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Washington | Clean • Care • Crave</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navyDeep: '#061329',
+                        brandBlue: '#0C356A',
+                        midBlue: '#0174BE',
+                        cyanSplash: '#00D7FF',
+                        tealMint: '#15F5BA',
+                        toastGold: '#FFC436',
+                        toastOrange: '#f97316'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-headline {
+            background: linear-gradient(135deg, #ffffff 0%, #00D7FF 50%, #FFC436 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(6,19,41,0.82) 0%, rgba(12,53,106,0.92) 100%);
+        }
+        .glass-card {
+            background: rgba(6, 19, 41, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(0, 215, 255, 0.15);
+        }
+        .glass-nav {
+            background: rgba(6, 19, 41, 0.92);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(0, 215, 255, 0.12);
+        }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(255, 196, 54, 0.25);
+        }
+        .cyan-glow {
+            box-shadow: 0 0 25px rgba(0, 215, 255, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-navyDeep text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-cyanSplash selection:text-navyDeep">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Updated Brand Logo -->
+                <a href="#" class="flex items-center gap-3.5 group">
+                    <div class="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-cyanSplash via-midBlue to-brandBlue p-0.5 shadow-lg shadow-cyanSplash/20 group-hover:scale-105 transition-transform duration-300">
+                        <div class="w-full h-full bg-navyDeep rounded-[14px] flex flex-col items-center justify-center relative overflow-hidden">
+                            <svg class="w-7 h-7 text-cyanSplash z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M12 2L14 8H10L12 2Z" fill="currentColor" opacity="0.3"/>
+                                <path d="M12 2L13.5 7.5H10.5L12 2Z" />
+                                <path d="M10.5 7.5L9.5 22H14.5L13.5 7.5" stroke-linecap="round"/>
+                                <path d="M4 15C4 15 6 12 12 12C18 12 20 15 20 15" stroke-linecap="round"/>
+                                <circle cx="6" cy="9" r="1.5" fill="#FFC436"/>
+                                <circle cx="18" cy="8" r="1" fill="#FFC436"/>
+                            </svg>
+                            <span class="text-[7px] font-black tracking-widest text-toastGold uppercase -mt-1 z-10">KOTA</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-xl sm:text-2xl font-black tracking-tight text-white">CAR</span>
+                            <span class="text-xl sm:text-2xl font-black tracking-tight text-cyanSplash">WASHINGTON</span>
+                        </div>
+                        <p class="text-[9px] tracking-widest uppercase text-slate-300 font-bold flex items-center gap-1.5">
+                            <span>CLEAN</span> <span class="text-toastGold">•</span> <span>CARE</span> <span class="text-toastGold">•</span> <span class="text-toastGold">CRAVE</span>
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-200">
+                    <a href="#services" class="hover:text-cyanSplash transition-colors">Services & Pricing</a>
+                    <a href="#combos" class="hover:text-cyanSplash transition-colors">Combos</a>
+                    <a href="#menu" class="hover:text-toastGold transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-burger text-toastGold"></i> Kota Menu
+                    </a>
+                    <a href="#gallery" class="hover:text-cyanSplash transition-colors">Gallery</a>
+                    <a href="#about" class="hover:text-cyanSplash transition-colors">About Us</a>
+                </nav>
+
+                <!-- Header Actions -->
+                <div class="hidden sm:flex items-center gap-4">
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartModal()" class="relative p-2.5 rounded-xl bg-brandBlue/80 border border-slate-700/60 text-slate-200 hover:text-white hover:border-cyanSplash transition-all">
+                        <i class="fa-solid fa-bag-shopping text-lg"></i>
+                        <span id="cart-badge" class="hidden absolute -top-1.5 -right-1.5 bg-toastGold text-navyDeep text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+                    </button>
+
+                    <!-- Book Now Button -->
+                    <button onclick="openBookingModal()" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-bold rounded-xl group bg-gradient-to-r from-cyanSplash via-midBlue to-toastGold hover:shadow-lg hover:shadow-cyanSplash/20 transition-all duration-300">
+                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-navyDeep rounded-[10px] group-hover:bg-opacity-0 text-white flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check text-cyanSplash group-hover:text-white transition-colors"></i>
+                            <span>Book Now</span>
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Mobile Navigation Toggle -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button onclick="toggleCartModal()" class="relative p-2 rounded-lg bg-brandBlue text-slate-200">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="mobile-cart-badge" class="hidden absolute -top-1 -right-1 bg-toastGold text-navyDeep text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-brandBlue text-slate-200 hover:text-white focus:outline-none">
+                        <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navyDeep/95 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg text-slate-200 hover:bg-brandBlue font-medium">Services & Pricing</a>
+            <a href="#combos" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg text-slate-200 hover:bg-brandBlue font-medium">Washington Combos</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg text-toastGold hover:bg-brandBlue font-medium flex items-center justify-between">
+                <span>Kota Fast-Food Menu</span>
+                <span class="bg-toastGold/20 text-toastGold text-xs px-2.5 py-0.5 rounded-full font-bold">Hot Fresh</span>
+            </a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg text-slate-200 hover:bg-brandBlue font-medium">Gallery</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2.5 px-3 rounded-lg text-slate-200 hover:bg-brandBlue font-medium">About Us</a>
+            <div class="pt-2 grid grid-cols-2 gap-2">
+                <button onclick="toggleMobileMenu(); openBookingModal();" class="py-3 rounded-xl bg-cyanSplash text-navyDeep font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+                    <i class="fa-solid fa-car-wash"></i> Book Wash
+                </button>
+                <button onclick="toggleMobileMenu(); toggleCartModal();" class="py-3 rounded-xl bg-toastGold text-navyDeep font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+                    <i class="fa-solid fa-burger"></i> Order Kotas
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden">
+        <!-- Hero Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=2000" alt="Car Washington Detailing Bay" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Ambient Lighting Effects -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-cyanSplash/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-toastGold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brandBlue/80 border border-cyanSplash/30 backdrop-blur-md">
+                        <span class="flex h-2.5 w-2.5 rounded-full bg-tealMint animate-pulse"></span>
+                        <span class="text-xs font-bold tracking-wider text-cyanSplash uppercase">Car Washington • Premium Wash & Lounge</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-none">
+                        Car Washington <br>
+                        <span class="gradient-headline">Clean, Care & Crave</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Top-Tier Car Wash & Detailing Services paired with the Best Hot Fresh Kotas in Town! Relax in our executive lounge while our experts restore your ride.
+                    </p>
+
+                    <!-- Direct Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyanSplash to-midBlue text-navyDeep font-extrabold text-base shadow-xl shadow-cyanSplash/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-car-wash text-lg"></i>
+                            <span>Book Car Wash Slot</span>
+                        </button>
+
+                        <a href="#menu" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-toastGold hover:bg-amber-400 text-navyDeep font-extrabold text-base border border-toastGold/80 transition-all flex items-center justify-center gap-3 shadow-xl shadow-toastGold/20">
+                            <i class="fa-solid fa-burger text-navyDeep"></i>
+                            <span>Order Kotas Ahead</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlight Badges -->
+                    <div class="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-black text-white">100%</p>
+                            <p class="text-xs text-slate-400 mt-0.5">High Foam Hand Wash</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-black text-toastGold">Hot & Fresh</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Prepared On Order</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl font-black text-cyanSplash">4.9 ★</p>
+                            <p class="text-xs text-slate-400 mt-0.5">500+ Customer Reviews</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Interactive Combo Card -->
+                <div class="lg:col-span-5" id="combos">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 relative shadow-2xl overflow-hidden border border-cyanSplash/30">
+                        <div class="absolute -top-12 -right-12 w-36 h-36 bg-toastGold/20 rounded-full blur-2xl"></div>
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3.5 py-1 rounded-full bg-toastGold/20 text-toastGold text-xs font-black uppercase tracking-wider border border-toastGold/40">
+                                ⭐ The Washington Special Combo
+                            </span>
+                            <span class="text-slate-400 text-xs"><i class="fa-solid fa-clock mr-1"></i> ~45 Mins</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 bg-navyDeep/90 p-3.5 rounded-2xl border border-slate-800">
+                                <div class="w-12 h-12 rounded-xl bg-cyanSplash/10 flex items-center justify-center text-cyanSplash text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-shower"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Full Car Wash & Express Detail</h4>
+                                    <p class="text-xs text-slate-400">Foam bath, interior vacuum, tire shine & dash polish</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-center text-slate-500 my-1">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </div>
+
+                            <div class="flex items-center gap-4 bg-navyDeep/90 p-3.5 rounded-2xl border border-slate-800">
+                                <div class="w-12 h-12 rounded-xl bg-toastGold/10 flex items-center justify-center text-toastGold text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-burger"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Signature Washington Special Kota</h4>
+                                    <p class="text-xs text-slate-400">Quarter loaf, chips, Russian, double cheese & cold drink</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-6 border-t border-slate-800/80 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs text-slate-400 block">Bundle Deal</span>
+                                <span class="text-2xl font-black text-tealMint">R220 <span class="text-xs text-slate-400 line-through font-normal">R270</span></span>
+                            </div>
+                            <button onclick="quickAddCombo('The Washington Special Combo', 220)" class="px-5 py-2.5 rounded-xl bg-toastGold hover:bg-amber-400 text-navyDeep font-extrabold text-xs shadow-lg shadow-toastGold/30 transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-bolt"></i> Quick Book Combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES & PACKAGES SECTION ================= -->
+    <section id="services" class="py-24 bg-brandBlue/20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-3 py-1 rounded-full bg-cyanSplash/10 text-cyanSplash text-xs font-bold uppercase tracking-widest border border-cyanSplash/20">
+                    Car Care Offerings
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-white mt-3">Car Wash & Detailing Services</h2>
+                <p class="text-slate-300 mt-3 text-base">Choose standalone car wash options or upgrade to our famous Kota Feast Combos while you wait.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between hover:border-cyanSplash/50 transition-all duration-300 group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-cyanSplash/10 text-cyanSplash flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-spray-can-sparkles"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white mb-2">Express Wash & Vacuum</h3>
+                        <p class="text-slate-400 text-sm mb-6">Quick and thorough exterior body wash with cabin dusting and rim cleaning.</p>
+                        
+                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> High-pressure snow foam body wash</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Full cabin & boot vacuum</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Tire dressing & rim scrub</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Exterior glass wipe down</li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">R120</span>
+                            <span class="text-xs text-slate-400 block">Estimated 30 mins</span>
+                        </div>
+                        <button onclick="selectServiceForBooking('Express Wash & Vacuum', 120)" class="px-4 py-2.5 rounded-xl bg-brandBlue hover:bg-cyanSplash hover:text-navyDeep text-white font-bold text-xs transition-all">
+                            Select Package
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 2: FEATURED KOTA FEAST & DETAIL -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between border-2 border-toastGold relative transform lg:-translate-y-2 shadow-2xl gold-glow group">
+                    <div class="absolute -top-4 right-6 bg-toastGold text-navyDeep text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        Best Value Combo
+                    </div>
+
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-toastGold/10 text-toastGold flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white mb-2">Kota Feast & Detail Combo</h3>
+                        <p class="text-slate-400 text-sm mb-6">Complete car detailing combined with a hot Signature Kota meal and cold drink.</p>
+                        
+                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Full Body Foam Wash & Interior Detail</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-toastGold"></i> 1x Signature Kota of your choice</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-toastGold"></i> 1x 330ml Chilled Beverage</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Reserved VIP Lounge Seating + Wi-Fi</li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-toastGold">R200</span>
+                            <span class="text-xs text-slate-400 block">Estimated 45 mins</span>
+                        </div>
+                        <button onclick="selectServiceForBooking('Kota Feast & Detail Combo', 200)" class="px-5 py-2.5 rounded-xl bg-toastGold hover:bg-amber-400 text-navyDeep font-extrabold text-xs transition-all shadow-md">
+                            Book Feast Combo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between hover:border-cyanSplash/50 transition-all duration-300 group">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-2xl font-extrabold text-white mb-2">Paint Protection & Shampoo</h3>
+                        <p class="text-slate-400 text-sm mb-6">Deep upholstery extraction shampoo + ceramic wax paint sealant for lasting gloss.</p>
+                        
+                        <ul class="space-y-3 mb-8 text-sm text-slate-300">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Deep seat & carpet steam shampoo</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> High-gloss liquid ceramic wax layer</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Engine bay wash & detail</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-check text-cyanSplash"></i> Leather conditioningtreatment</li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-2xl font-black text-white">R380</span>
+                            <span class="text-xs text-slate-400 block">Estimated 75 mins</span>
+                        </div>
+                        <button onclick="selectServiceForBooking('Paint Protection & Shampoo', 380)" class="px-4 py-2.5 rounded-xl bg-brandBlue hover:bg-cyanSplash hover:text-navyDeep text-white font-bold text-xs transition-all">
+                            Select Package
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= KOTA FOOD MENU SECTION ================= -->
+    <section id="menu" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="px-3 py-1 rounded-full bg-toastGold/20 text-toastGold text-xs font-black uppercase tracking-wider border border-toastGold/30">
+                        Township Gourmet Kitchen
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-3">The Washington Kota Menu</h2>
+                    <p class="text-slate-300 mt-2 max-w-xl text-sm">Crispy chips, melted cheddar, savory meats, and signature sauces inside fresh bread.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex items-center gap-2 mt-6 md:mt-0 bg-navyDeep p-1.5 rounded-2xl border border-slate-800 overflow-x-auto">
+                    <button onclick="filterMenu('all')" class="kota-tab active px-4 py-2 rounded-xl text-xs font-bold bg-toastGold text-navyDeep transition-all">All Items</button>
+                    <button onclick="filterMenu('classic')" class="kota-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all">Classics</button>
+                    <button onclick="filterMenu('special')" class="kota-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all">Specials</button>
+                    <button onclick="filterMenu('drinks')" class="kota-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition-all">Drinks & Fries</button>
+                </div>
+            </div>
+
+            <!-- Kota Menu Cards Container -->
+            <div id="kota-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Javascript will populate cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GALLERY SECTION ================= -->
+    <section id="gallery" class="py-24 bg-brandBlue/20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="px-3 py-1 rounded-full bg-cyanSplash/10 text-cyanSplash text-xs font-bold uppercase tracking-widest border border-cyanSplash/20">
+                    Live Gallery
+                </span>
+                <h3 class="text-3xl font-black text-white mt-3">Car Washington Experience</h3>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex justify-center gap-2 sm:gap-3 mb-10 flex-wrap">
+                <button onclick="filterGallery('all')" class="gal-filter px-4 py-2 rounded-xl text-xs font-bold bg-cyanSplash text-navyDeep">All Photos</button>
+                <button onclick="filterGallery('wash')" class="gal-filter px-4 py-2 rounded-xl text-xs font-bold bg-navyDeep text-slate-300 hover:bg-brandBlue">Car Detailing</button>
+                <button onclick="filterGallery('food')" class="gal-filter px-4 py-2 rounded-xl text-xs font-bold bg-navyDeep text-slate-300 hover:bg-brandBlue">Kotas & Food</button>
+                <button onclick="filterGallery('lounge')" class="gal-filter px-4 py-2 rounded-xl text-xs font-bold bg-navyDeep text-slate-300 hover:bg-brandBlue">Customer Lounge</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-container">
+                <div class="gal-item wash overflow-hidden rounded-2xl group relative h-64 border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Foam Wash">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navyDeep/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-xs font-bold text-white">Active Snow Foam Bath</span>
+                    </div>
+                </div>
+
+                <div class="gal-item food overflow-hidden rounded-2xl group relative h-64 border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Fresh Kota">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navyDeep/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-xs font-bold text-toastGold">Freshly Made Washington Kota</span>
+                    </div>
+                </div>
+
+                <div class="gal-item wash overflow-hidden rounded-2xl group relative h-64 border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Interior Wash">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navyDeep/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-xs font-bold text-white">Interior Leather & Vacuum Care</span>
+                    </div>
+                </div>
+
+                <div class="gal-item lounge overflow-hidden rounded-2xl group relative h-64 border border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Lounge">
+                    <div class="absolute inset-0 bg-gradient-to-t from-navyDeep/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex items-end">
+                        <span class="text-xs font-bold text-white">Executive Waiting Lounge</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="relative z-10 rounded-3xl overflow-hidden border border-cyanSplash/20 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800" alt="Detailing station" class="w-full h-auto">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-cyanSplash/20 rounded-full blur-3xl"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <span class="text-xs font-bold text-cyanSplash uppercase tracking-widest">About Car Washington</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-white">A Superior Wash & Delicious Township Cuisine</h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        At Car Washington, we transformed waiting for your vehicle wash into a delicious break. Located centrally with state-of-the-art washing bays, we offer high-pressure foam treatments alongside our famous Kota kitchen.
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Drop off your vehicle, place your food order, and sit back in our air-conditioned lounge equipped with high-speed Wi-Fi and charging ports.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-navyDeep border border-slate-800">
+                            <i class="fa-solid fa-gem text-cyanSplash text-xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Precision Cleaning</h4>
+                            <p class="text-xs text-slate-400 mt-1">Certified staff and eco-friendly paint-safe soaps.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-navyDeep border border-slate-800">
+                            <i class="fa-solid fa-fire-burner text-toastGold text-xl mb-2"></i>
+                            <h4 class="font-bold text-white text-sm">Gourmet Kotas</h4>
+                            <p class="text-xs text-slate-400 mt-1">Made fresh to order with crispy golden chips.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-navyDeep border-t border-slate-800/80 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xl font-black text-white">CAR</span>
+                        <span class="text-xl font-black text-cyanSplash">WASHINGTON</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Premium auto detailing meets township gourmet fast food. Clean, Care & Crave under one roof!
+                    </p>
+                    <div class="flex space-x-3 text-slate-400">
+                        <a href="#" class="w-9 h-9 rounded-xl bg-brandBlue flex items-center justify-center hover:bg-cyanSplash hover:text-navyDeep transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-brandBlue flex items-center justify-center hover:bg-cyanSplash hover:text-navyDeep transition-colors"><i class="fa-brands fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-brandBlue flex items-center justify-center hover:bg-cyanSplash hover:text-navyDeep transition-colors"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#services" class="hover:text-cyanSplash">Car Wash Packages</a></li>
+                        <li><a href="#menu" class="hover:text-toastGold">Kota Food Menu</a></li>
+                        <li><a href="#combos" class="hover:text-cyanSplash">Special Combos</a></li>
+                        <li><a href="#" onclick="openBookingModal()" class="hover:text-cyanSplash">Online Appointment</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">Hours of Operation</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex justify-between"><span>Mon - Fri:</span> <span class="text-slate-200">08:00 AM - 06:00 PM</span></li>
+                        <li class="flex justify-between"><span>Saturday:</span> <span class="text-slate-200">08:00 AM - 07:00 PM</span></li>
+                        <li class="flex justify-between"><span>Sunday:</span> <span class="text-slate-200">09:00 AM - 05:00 PM</span></li>
+                        <li class="pt-2 text-toastGold font-bold">Kitchen open during all wash hours</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-4">Location & Contact</h4>
+                    <ul class="space-y-3 text-xs text-slate-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-cyanSplash mt-0.5"></i>
+                            <span>124 Washington Boulevard, Main Hub</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-cyanSplash"></i>
+                            <span>+27 (0) 12 345 6789</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-cyanSplash"></i>
+                            <span>bookings@carwashington.co.za</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Car Washington. All rights reserved.</p>
+                <p>Designed with <i class="fa-solid fa-heart text-toastGold"></i> Clean • Care • Crave</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= BOOKING MODAL ================= -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navyDeep/80 backdrop-blur-md">
+        <div class="bg-navyDeep border border-cyanSplash/30 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-cyanSplash/20 text-cyanSplash flex items-center justify-center">
+                    <i class="fa-solid fa-calendar-plus text-lg"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-white">Car Wash Slot Booking</h3>
+                    <p class="text-xs text-slate-400">Reserve your car detailing time and meal</p>
+                </div>
+            </div>
+
+            <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Full Name</label>
+                    <input type="text" required placeholder="John Doe" class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Phone Number</label>
+                        <input type="tel" required placeholder="082 123 4567" class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Vehicle Type</label>
+                        <select class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                            <option>Hatchback / Sedan</option>
+                            <option>SUV / Crossover</option>
+                            <option>Bakkie / Van</option>
+                            <option>Sports Car</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Preferred Date</label>
+                        <input type="date" required class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Time Slot</label>
+                        <select class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                            <option>09:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>01:00 PM</option>
+                            <option>03:00 PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Select Wash Package</label>
+                    <select id="modal-service-select" class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                        <option value="Express Wash & Vacuum">Express Wash & Vacuum - R120</option>
+                        <option value="Kota Feast & Detail Combo">Kota Feast & Detail Combo - R200</option>
+                        <option value="Paint Protection & Shampoo">Paint Protection & Shampoo - R380</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Kota Food Order Notes (Optional)</label>
+                    <input type="text" id="modal-food-notes" placeholder="e.g. 1x Cheese & Polony Kota (Extra Sauce)" class="w-full px-4 py-2.5 rounded-xl bg-brandBlue/60 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyanSplash">
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyanSplash to-midBlue text-navyDeep font-black text-sm shadow-lg shadow-cyanSplash/20 hover:brightness-110 transition-all mt-4">
+                    Confirm Car Wash & Food Reservation
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= SHOPPING CART SLIDE-OVER ================= -->
+    <div id="cart-modal" class="fixed inset-0 z-50 hidden bg-navyDeep/80 backdrop-blur-md flex justify-end">
+        <div class="bg-navyDeep border-l border-slate-800 w-full max-w-md h-full p-6 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-burger text-toastGold text-xl"></i>
+                        <h3 class="text-lg font-black text-white">Your Kota & Care Order</h3>
+                    </div>
+                    <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="cart-items" class="py-6 space-y-4 overflow-y-auto max-h-[60vh]">
+                    <p class="text-sm text-slate-400 text-center py-8">Your order cart is empty.</p>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-slate-400 text-sm">Total Amount:</span>
+                    <span id="cart-total" class="text-2xl font-black text-tealMint">R0</span>
+                </div>
+                <button onclick="checkoutCart()" class="w-full py-3.5 rounded-xl bg-toastGold hover:bg-amber-400 text-navyDeep font-black text-sm transition-all shadow-lg shadow-toastGold/20">
+                    Proceed to Reserve & Pay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-brandBlue text-white px-5 py-3 rounded-2xl shadow-2xl border border-cyanSplash/40 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-cyanSplash text-lg"></i>
+        <span id="toast-message" class="text-sm font-bold">Item added to cart!</span>
+    </div>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        // Menu Data
+        const menuItems = [
+            { id: 1, name: 'The Washington Special Kota', category: 'special', price: 85, desc: 'Quarter loaf, chips, Russian, fried egg, double cheese & special sauce.', img: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&q=80&w=400' },
+            { id: 2, name: 'Classic Cheese & Polony Kota', category: 'classic', price: 45, desc: 'Quarter loaf, golden crispy chips, polony, melted cheddar & mustard.', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=400' },
+            { id: 3, name: 'Full House Russian Kota', category: 'special', price: 75, desc: 'Quarter loaf, jumbo Russian, chips, cheese, burger patty & atchar.', img: 'https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&q=80&w=400' },
+            { id: 4, name: 'Wash + Special Kota Combo', category: 'special', price: 180, desc: 'Express body wash + 1x Washington Special Kota + 330ml soda.', img: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=400' },
+            { id: 5, name: 'Chilled Soft Drinks (330ml)', category: 'drinks', price: 20, desc: 'Choice of Coca-Cola, Fanta, Stoney or Sprite.', img: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&q=80&w=400' },
+            { id: 6, name: 'Basket of Crispy Fries', category: 'drinks', price: 35, desc: 'Large portion of seasoned hot french fries with Washington spice.', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&q=80&w=400' }
+        ];
+
+        let cart = [];
+
+        function renderMenu(items) {
+            const grid = document.getElementById('kota-grid');
+            grid.innerHTML = items.map(item => `
+                <div class="glass-card rounded-2xl overflow-hidden hover:border-cyanSplash/40 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="h-44 overflow-hidden relative">
+                            <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 right-3 bg-navyDeep/80 backdrop-blur-md text-toastGold font-black text-xs px-3 py-1 rounded-full border border-toastGold/30">
+                                R${item.price}
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h4 class="font-extrabold text-white text-base mb-1">${item.name}</h4>
+                            <p class="text-slate-400 text-xs leading-relaxed mb-4">${item.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <button onclick="addToCart('${item.name}', ${item.price})" class="w-full py-2.5 rounded-xl bg-brandBlue hover:bg-toastGold hover:text-navyDeep text-slate-200 font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Add to Kota Order
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterMenu(category) {
+            document.querySelectorAll('.kota-tab').forEach(btn => {
+                btn.classList.remove('bg-toastGold', 'text-navyDeep');
+                btn.classList.add('text-slate-400');
+            });
+            event.target.classList.add('bg-toastGold', 'text-navyDeep');
+
+            if (category === 'all') {
+                renderMenu(menuItems);
+            } else {
+                renderMenu(menuItems.filter(i => i.category === category));
+            }
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            showToast(`Added "${name}" to cart!`);
+        }
+
+        function quickAddCombo(name, price) {
+            addToCart(name, price);
+            toggleCartModal();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const mobileBadge = document.getElementById('mobile-cart-badge');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            badge.innerText = cart.length;
+            mobileBadge.innerText = cart.length;
+
+            if (cart.length > 0) {
+                badge.classList.remove('hidden');
+                mobileBadge.classList.remove('hidden');
+
+                cartItemsContainer.innerHTML = cart.map((item, index) => `
+                    <div class="flex items-center justify-between bg-brandBlue/60 p-3 rounded-xl border border-slate-700/60">
+                        <div>
+                            <p class="text-xs font-bold text-white">${item.name}</p>
+                            <p class="text-xs text-toastGold font-bold">R${item.price}</p>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-300 text-xs p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `).join('');
+
+                const total = cart.reduce((sum, item) => sum + item.price, 0);
+                cartTotal.innerText = `R${total}`;
+            } else {
+                badge.classList.add('hidden');
+                mobileBadge.classList.add('hidden');
+                cartItemsContainer.innerHTML = `<p class="text-sm text-slate-400 text-center py-8">Your cart is empty.</p>`;
+                cartTotal.innerText = 'R0';
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                showToast('Please add items to cart first.');
+                return;
+            }
+            toggleCartModal();
+            openBookingModal();
+        }
+
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function toggleCartModal() {
+            document.getElementById('cart-modal').classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function selectServiceForBooking(serviceName, price) {
+            const select = document.getElementById('modal-service-select');
+            for(let i=0; i<select.options.length; i++) {
+                if(select.options[i].value.includes(serviceName)) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+            openBookingModal();
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            closeBookingModal();
+            cart = [];
+            updateCartUI();
+            showToast('Reservation submitted! We will contact you shorty.');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gal-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        window.onload = function() {
+            renderMenu(menuItems);
+        };
+    </script>
+</body>
+</html>
